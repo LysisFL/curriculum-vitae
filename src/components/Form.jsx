@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../styles/Form.css'
+import FormField from './FormField';
 
 export default function Form() {
 
@@ -12,63 +13,50 @@ export default function Form() {
 
     const fullName = person.firstName + ' ' + person.lastName;
 
+    {/*}
+
     function handleDataUpdate(e) {
+        setData ({
+            ...person,
+            [e.target.name]: e.target.value
+        });
+    } {*/}
+
+    const handleDataUpdate = e => {
         setData ({
             ...person,
             [e.target.name]: e.target.value
         });
     }
 
-    function FormField({labelText,inputName,inputValue}) {
-        return (
-            <div className='formData'>
-                <label>{labelText}</label>
-                <input
-                    name={inputName}
-                    value={inputValue}
-                    onChange={handleDataUpdate}
-                    />
-            </div>
-        )
-    }
-
     return (
         <div className="form">
-            <div className="formData">
-                <label>First name:</label>
-                <input
-                    name="firstName"
-                    value={person.firstName}
-                    onChange={handleDataUpdate}
-                    />
-            </div>
-            <div className="formData">
-                <label>Last name:</label>
-                <input
-                    name="lastName"
-                    value={person.lastName}
-                    onChange={handleDataUpdate}
-                    />
-            </div>
-            <div className="formData">
-                <label>Phone number:</label>
-                <input
-                    name="phoneNumber"
-                    type="number"
-                    value={person.phoneNumber}
-                    onChange={handleDataUpdate}
-                    />
-            </div>
-            <div className="formData">
-                <label>Email:</label>
-                <input
-                    name="email"
-                    type="email"
-                    value={person.email}
-                    onChange={handleDataUpdate}
-                    />
-            </div>
-
+            <FormField 
+                labelText="First name:"
+                inputName="firstName"
+                inputValue={person.firstName}
+                onChange={handleDataUpdate}
+            />
+            <FormField 
+                labelText="Last name:"
+                inputName="lastName"
+                inputValue={person.lastName}
+                onChange={handleDataUpdate}
+            />
+            <FormField 
+                labelText="Phone number:"
+                inputName="phoneNumber"
+                inputValue={person.phoneNumber}
+                inputType='tel'
+                onChange={handleDataUpdate}
+            />
+            <FormField 
+                labelText="Email:"
+                inputName="email"
+                inputValue={person.email}
+                inputType='email'
+                onChange={handleDataUpdate}
+            />
             <h4> These are your data. They're updating in real time! </h4>
             <p> Your name is <b>{fullName}</b>.</p>
             <p> Your phoneNumber is <b>{person.phoneNumber}</b> and your email is <b>{person.email}</b>.</p> 
