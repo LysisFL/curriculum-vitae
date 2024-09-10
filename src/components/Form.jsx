@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import '../styles/Form.css'
 import FormField from './FormField';
+import FormSection from './FormSection';
 
 export default function Form() {
 
@@ -31,6 +32,7 @@ export default function Form() {
 
     return (
         <div className="form">
+            <h2> Personal details </h2>
             <FormField 
                 labelText="First name:"
                 inputName="firstName"
@@ -57,6 +59,16 @@ export default function Form() {
                 inputType='email'
                 onChange={handleDataUpdate}
             />
+            <FormSection
+                title="Education"
+            >
+                This is the education section!
+            </FormSection>
+            <FormSection
+                title="Experience"
+            >
+                This is the experience section!
+            </FormSection>
             <h4> These are your data. They're updating in real time! </h4>
             <p> Your name is <b>{fullName}</b>.</p>
             <p> Your phoneNumber is <b>{person.phoneNumber}</b> and your email is <b>{person.email}</b>.</p> 
