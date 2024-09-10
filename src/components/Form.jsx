@@ -3,32 +3,13 @@ import '../styles/Form.css'
 import FormField from './FormField';
 import FormSection from './FormSection';
 
-export default function Form() {
+export default function Form({
+    person,
+    handleDataUpdate
+}) {
 
-    const [person,setData] = useState({
-        firstName:'John',
-        lastName:'Doe',
-        phoneNumber:123456789,
-        email:'johndoe@business.com'
-    });
-
-    const fullName = person.firstName + ' ' + person.lastName;
-
-    {/*}
-
-    function handleDataUpdate(e) {
-        setData ({
-            ...person,
-            [e.target.name]: e.target.value
-        });
-    } {*/}
-
-    const handleDataUpdate = e => {
-        setData ({
-            ...person,
-            [e.target.name]: e.target.value
-        });
-    }
+    const {firstName,lastName,phoneNumber,email} = person;
+    const fullName = firstName + ' ' + lastName;
 
     return (
         <div className="form">
@@ -36,26 +17,26 @@ export default function Form() {
             <FormField 
                 labelText="First name:"
                 inputName="firstName"
-                inputValue={person.firstName}
+                inputValue={firstName}
                 onChange={handleDataUpdate}
             />
             <FormField 
                 labelText="Last name:"
                 inputName="lastName"
-                inputValue={person.lastName}
+                inputValue={lastName}
                 onChange={handleDataUpdate}
             />
             <FormField 
                 labelText="Phone number:"
                 inputName="phoneNumber"
-                inputValue={person.phoneNumber}
+                inputValue={phoneNumber}
                 inputType='tel'
                 onChange={handleDataUpdate}
             />
             <FormField 
                 labelText="Email:"
                 inputName="email"
-                inputValue={person.email}
+                inputValue={email}
                 inputType='email'
                 onChange={handleDataUpdate}
             />
@@ -71,7 +52,7 @@ export default function Form() {
             </FormSection>
             <h4> These are your data. They're updating in real time! </h4>
             <p> Your name is <b>{fullName}</b>.</p>
-            <p> Your phoneNumber is <b>{person.phoneNumber}</b> and your email is <b>{person.email}</b>.</p> 
+            <p> Your phoneNumber is <b>{phoneNumber}</b> and your email is <b>{email}</b>.</p>  
         </div>
     )
 }
