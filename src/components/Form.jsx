@@ -7,9 +7,7 @@ export default function Form({
     person,
     handleDataUpdate
 }) {
-
     const {firstName,lastName,phoneNumber,email} = person;
-    const fullName = firstName + ' ' + lastName;
 
     return (
         <div className="form">
@@ -50,9 +48,6 @@ export default function Form({
             >
                 This is the experience section!
             </FormSection>
-            <h4> These are your data. They're updating in real time! </h4>
-            <p> Your name is <b>{fullName}</b>.</p>
-            <p> Your phoneNumber is <b>{phoneNumber}</b> and your email is <b>{email}</b>.</p>  
         </div>
     )
 }
