@@ -40,13 +40,15 @@ function App() {
         ...personalData,
         [e.target.name]: e.target.value
     });
-}
+  }
 
   return (
     <>
       <Form 
         person = {personalData}
         handleDataUpdate = {handleDataUpdate}
+        educationExperience={educationExperience}
+        laboralExperience={laboralExperience}
       />
       <Resume
         person = {personalData}

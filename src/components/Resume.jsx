@@ -4,7 +4,7 @@ import ResumeSection from "./ResumeSection";
 export default function Resume({person, educationExperience,laboralExperience}) {
     const {firstName,lastName,phoneNumber,email} = person;
     return (
-        <>
+        <div className="resume">
             <div className="personalInfo">
                 <h2> {firstName} {lastName} </h2>
                 <p> Tel: {phoneNumber} </p>
@@ -18,6 +18,6 @@ export default function Resume({person, educationExperience,laboralExperience}) 
                 title="Education"
                 educationExperience={educationExperience}
                 />
-        </>
+        </div>
     )
 }

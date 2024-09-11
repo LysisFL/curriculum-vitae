@@ -5,7 +5,10 @@ import FormSection from './FormSection';
 
 export default function Form({
     person,
-    handleDataUpdate
+    handleDataUpdate,
+    educationExperience,
+    laboralExperience,
+    onDataEdit
 }) {
     const {firstName,lastName,phoneNumber,email} = person;
 
@@ -41,12 +44,22 @@ export default function Form({
             <FormSection
                 title="Education"
             >
-                This is the education section!
+                {educationExperience && educationExperience.map((entry, index) => (
+                        <div className='row' key={index}>
+                            <h4>{entry.title}</h4>
+                            <button>Edit</button>
+                        </div>
+                ))}
             </FormSection>
             <FormSection
-                title="Experience"
+                title="Job experience"
             >
-                This is the experience section!
+                {laboralExperience && laboralExperience.map((entry, index) => (
+                <div className='row' key={index}>
+                    <h4>{entry.title}</h4>
+                    <button>Edit</button>
+                </div>
+            ))}
             </FormSection>
         </div>
     )

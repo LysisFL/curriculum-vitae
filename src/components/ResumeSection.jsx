@@ -2,7 +2,7 @@ export default function ResumeSection({educationExperience, laboralExperience, t
     return (
         <div>
             <h2>{title}</h2>
-            {educationExperience!=undefined && educationExperience.map((entry, index) => (
+            {educationExperience && educationExperience.map((entry, index) => (
                 <div key={index}>
                     <h3>{entry.title}</h3>
                     <p>{entry.subtitle}</p>
@@ -10,7 +10,7 @@ export default function ResumeSection({educationExperience, laboralExperience, t
                     <p>{entry.location}</p>
                 </div>
             ))}
-            {laboralExperience!=undefined && laboralExperience.map((entry, index) => (
+            {laboralExperience && laboralExperience.map((entry, index) => (
                 <div key={index}>
                     <h3>{entry.title}</h3>
                     <p>{entry.subtitle}</p>
